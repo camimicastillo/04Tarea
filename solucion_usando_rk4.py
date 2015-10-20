@@ -30,7 +30,7 @@ E[0] = p.energia_total()
 
 for i in range(1,N_pasos):
     #Avanzo posicion y velocidad del planeta en un dt
-    p.avanza_euler(dt)
+    p.avanza_rk4(dt)
     #Obtengo los valores de la posicion del planeta, en x y en y
     x[i]=p.y_actual[0]
     y[i]=p.y_actual[1]
