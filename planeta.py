@@ -35,6 +35,7 @@ class Planeta(object):
 
         fx = (-x)*( G*M*m / r**3 - 2 * self.alpha *G*M*m / r**4)
         fy = (-y)*( G*M*m / r**3 - 2 * self.alpha *G*M*m / r**4)
+
         return [vx, vy, fx, fy]
 
     def avanza_euler(self, dt):
@@ -79,4 +80,16 @@ class Planeta(object):
         '''
         Calcula la enérgía total del sistema en las condiciones actuales.
         '''
+        G=1
+        M=1
+        m=1
+        #Obtener condiciones iniciales
+        x, y, vx, vy = self.y_actual
+        vx, vy, fx, fy = self.ec_de_mov()
+
+        r = ((x**2 + y**2)**(0.5))
+
+        #Energia=T+U
+        self.energia_t = (m*(vx**2 + vy**2))*0.5 - G*M*m / r + self.alpha*G*M*m / r**2
+
         pass
