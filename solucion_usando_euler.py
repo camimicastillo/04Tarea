@@ -55,3 +55,4 @@ ax2.set_ylabel('Energia total')
 
 plt.draw()
 plt.show()
+plt.savefig('euler.png')

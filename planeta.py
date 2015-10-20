@@ -112,7 +112,23 @@ class Planeta(object):
         '''
         Similar a avanza_euler, pero usando Verlet.
         '''
-        
+        #Obtener posicion, velocidad, funcion
+        x_0, y_0, vx_0, vy_0 = self.y_actual
+        v_x0, v_y0, f_x0, f_y0 = self.ecuacion_de_movimiento()
+        #Calcular posicion nueva
+        x_nuevo = x_0 + dt * v_x0 + f_x0 * (dt**2) /2.
+        y_nuevo = y_0 + dt * v_y0 + f_y0 * (dt**2) /2.
+
+        #Se puede implementar para calcular la velocidad
+        self.y_actual=[x_nuevo, y_nuevo, v_x0, v_y0]
+        vx1, vy1, fx1, fy1 = self.ecuacion_de_movimiento()
+
+        vx_nuevo = v_x0 + fx1 * dt /2. + f_x0 * dt /2.
+        vy_nuevo = v_y0 + fy1 * dt /2. + f_y0 * dt /2.
+
+        #Volver a actualizar las condiciones iniciales
+        self.y_actual = [x_nuevo, y_nuevo, vx_nuevo, vy_nuevo]
+        self.t_actual += dt
 
         pass
 

@@ -30,7 +30,7 @@ E[0] = p.energia_total()
 
 for i in range(1,N_pasos):
     #Avanzo posicion y velocidad del planeta en un dt
-    p.avanza_rk4(dt)
+    p.avanza_verlet(dt)
     #Obtengo los valores de la posicion del planeta, en x y en y
     x[i]=p.y_actual[0]
     y[i]=p.y_actual[1]
@@ -55,4 +55,4 @@ ax2.set_ylabel('Energia total')
 
 plt.draw()
 plt.show()
-plt.savefig('rk4.png')
+plt.savefig('verlet.png')
