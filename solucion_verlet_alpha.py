@@ -14,10 +14,12 @@ p = Planeta(condicion_inicial, alpha= 10**(-2.762))
 '''
 Complete el código a continuación.
 '''
+
 #Arreglo del tiempo y el dt
-N_pasos = 200000
-dt = 20000./N_pasos
-t = np.linspace(0, 20000, N_pasos)
+N_pasos = 100000
+dt = 25000./N_pasos
+t = np.linspace(0, 25000, N_pasos)
+
 
 #Arreglos para guardar valores de posicion x e y, y energia
 x = np.zeros(N_pasos)
